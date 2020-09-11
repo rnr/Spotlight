@@ -53,6 +53,14 @@ extension SpotlightViewController {
         infoStackView.layoutMargins = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         infoStackView.isLayoutMarginsRelativeArrangement = true
         infoStackView.spacing = 10
+        
+        //set blue background
+        let backgroundView = UIView(frame: infoStackView.bounds)
+        backgroundView.backgroundColor = UIColor(red: 3/255.0, green: 121/255.0, blue: 255/255.0, alpha: 1.0)
+        backgroundView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        backgroundView.layer.cornerRadius = 10
+        backgroundView.layer.masksToBounds = true
+        infoStackView.insertSubview(backgroundView, at: 0)
 
         if Spotlight.showInfoBackground {
             insertBackgroundBlur()
