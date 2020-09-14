@@ -33,7 +33,7 @@ extension SpotlightViewController {
         antiSpotlightView.backgroundColor = .clear
         if #available(iOS 12.0, *) {
             if view.traitCollection.userInterfaceStyle == .dark {
-                antiSpotlightView.backgroundColor = .lightGray
+                antiSpotlightView.backgroundColor = UIColor.white.withAlphaComponent(0.3)
             }
         }
         antiSpotlightView.alpha = Spotlight.alpha
