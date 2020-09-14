@@ -30,6 +30,7 @@ final class SpotlightViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSpotlightView()
+        setupAntiSpotlightView()
         setupInfoView()
         setupTapGestureRecognizer()
     }
@@ -52,6 +53,7 @@ final class SpotlightViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         spotlightView.isHidden = true
+        antiSpotlightView.isHidden = true
         timer.invalidate()
     }
 
@@ -59,10 +61,17 @@ final class SpotlightViewController: UIViewController {
         super.viewWillTransition(to: size, with: coordinator)
         // Redraw spotlight for the new dimention
         spotlightView.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        antiSpotlightView.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
         showSpotlight()
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        setupAntiSpotlightView()
     }
 
     let spotlightView = SpotlightView()
+    let antiSpotlightView = AntiSpotlightView()
     var infoLabel: UILabel!
     var infoStackView: UIStackView!
     var infoStackTopConstraint: NSLayoutConstraint!
@@ -120,10 +129,13 @@ extension SpotlightViewController {
         switch currentNodeIndex {
         case 0:
             targetRect = spotlightView.appear(node)
+            antiSpotlightView.appear(node)
         case let index where index == spotlightNodes.count:
             targetRect = spotlightView.disappear(node)
+            antiSpotlightView.disappear(node)
         default:
             targetRect = spotlightView.move(node)
+            antiSpotlightView.move(node)
         }
 
         let newNodeIndex = currentNodeIndex + 1

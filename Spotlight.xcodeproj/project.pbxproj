@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26EC2988250FB200009DCD2D /* AntiSpotlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EC2987250FB200009DCD2D /* AntiSpotlightView.swift */; };
 		413B98E12029857F00EF3606 /* Spotlight.h in Headers */ = {isa = PBXBuildFile; fileRef = 413B98DF2029857F00EF3606 /* Spotlight.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		413B98EE2029861300EF3606 /* Spotlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413B98E82029861300EF3606 /* Spotlight.swift */; };
 		413B98EF2029861300EF3606 /* SpotlightNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413B98E92029861300EF3606 /* SpotlightNode.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		26EC2987250FB200009DCD2D /* AntiSpotlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntiSpotlightView.swift; sourceTree = "<group>"; };
 		413B98DC2029857F00EF3606 /* Spotlight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Spotlight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		413B98DF2029857F00EF3606 /* Spotlight.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Spotlight.h; sourceTree = "<group>"; };
 		413B98E02029857F00EF3606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				413B98E92029861300EF3606 /* SpotlightNode.swift */,
 				41CB6A76203DEAF4006C0DB5 /* SpotlightTarget.swift */,
 				413B98EC2029861300EF3606 /* SpotlightView.swift */,
+				26EC2987250FB200009DCD2D /* AntiSpotlightView.swift */,
 				413B98EB2029861300EF3606 /* SpotlightViewController.swift */,
 				413B98EA2029861300EF3606 /* SpotlightViewController+UISetup.swift */,
 				413B98ED2029861300EF3606 /* UIKitExtensions.swift */,
@@ -214,6 +217,7 @@
 				413B98EE2029861300EF3606 /* Spotlight.swift in Sources */,
 				41CB6A77203DEAF4006C0DB5 /* SpotlightTarget.swift in Sources */,
 				413B98F02029861300EF3606 /* SpotlightViewController+UISetup.swift in Sources */,
+				26EC2988250FB200009DCD2D /* AntiSpotlightView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

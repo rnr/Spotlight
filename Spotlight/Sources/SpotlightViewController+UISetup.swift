@@ -15,7 +15,7 @@ extension SpotlightViewController {
     func setup() {
         modalPresentationStyle = .overFullScreen
     }
-
+    
     func setupSpotlightView() {
         spotlightView.frame = UIScreen.main.bounds
         spotlightView.backgroundColor = Spotlight.backgroundColor
@@ -26,6 +26,25 @@ extension SpotlightViewController {
         view.addConstraints([NSLayoutConstraint.Attribute.top, .bottom, .left, .right].map {
             NSLayoutConstraint(item: view, attribute: $0, relatedBy: .equal, toItem: spotlightView, attribute: $0, multiplier: 1, constant: 0)
         })
+    }
+    
+    func setupAntiSpotlightView() {
+        antiSpotlightView.frame = UIScreen.main.bounds
+        antiSpotlightView.backgroundColor = .clear
+        if #available(iOS 12.0, *) {
+            if view.traitCollection.userInterfaceStyle == .dark {
+                antiSpotlightView.backgroundColor = .lightGray
+            }
+        }
+        antiSpotlightView.alpha = Spotlight.alpha
+        antiSpotlightView.isUserInteractionEnabled = false
+        guard let view = view else { return }
+        if antiSpotlightView.superview == nil {
+            view.insertSubview(antiSpotlightView, at: 0)
+            view.addConstraints([NSLayoutConstraint.Attribute.top, .bottom, .left, .right].map {
+                NSLayoutConstraint(item: view, attribute: $0, relatedBy: .equal, toItem: antiSpotlightView, attribute: $0, multiplier: 1, constant: 0)
+            })
+        }
     }
 
     func setupInfoView() {

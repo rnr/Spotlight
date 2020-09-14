@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class SpotlightView: UIView {
+class SpotlightView: UIView {
     public override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -28,16 +28,19 @@ final class SpotlightView: UIView {
         maskLayer.frame = frame
     }
 
+    @discardableResult
     func appear(_ node: SpotlightNode, duration: TimeInterval = Spotlight.animationDuration) -> CGRect {
         maskLayer.add(appearAnimation(duration, node: node), forKey: nil)
         return node.target.targetView.frame
     }
 
+    @discardableResult
     func disappear(_ node: SpotlightNode, duration: TimeInterval = Spotlight.animationDuration) -> CGRect {
         maskLayer.add(disappearAnimation(duration, node: node), forKey: nil)
         return node.target.targetView.frame
     }
 
+    @discardableResult
     func move(_ toNode: SpotlightNode, duration: TimeInterval = Spotlight.animationDuration, moveType: SpotlightMoveType = .direct) -> CGRect {
         switch moveType {
         case .direct:
@@ -54,9 +57,7 @@ final class SpotlightView: UIView {
         layer.fillColor = UIColor.black.cgColor
         return layer
     }()
-}
 
-private extension SpotlightView {
     func moveDirect(_ toNode: SpotlightNode, duration: TimeInterval = Spotlight.animationDuration) {
         maskLayer.add(moveAnimation(duration, toNode: toNode), forKey: nil)
     }
